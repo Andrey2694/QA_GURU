@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -40,8 +39,6 @@ public class RegistrationFormSmokeTest {
         $x("//div[@class = 'table-responsive']//td[text() = 'Hobbies']/..//td[2]").shouldHave(text("Sports, Reading, Music"));
         $x("//div[@class = 'table-responsive']//td[text() = 'Address']/..//td[2]").shouldHave(text("ul.Andrey 28/33"));
         $x("//div[@class = 'table-responsive']//td[text() = 'State and City']/..//td[2]").shouldHave(text("Rajasthan Jaiselmer"));
-
-
     }
 }
 
