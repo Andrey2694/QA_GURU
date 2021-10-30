@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.CollectionCondition.itemWithText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -30,15 +31,16 @@ public class RegistrationFormSmokeTest {
         $("#subjectsInput").scrollTo().setValue("English").pressEnter();
         $("#submit").scrollTo().click();
 
-        $x("//div[@class = 'table-responsive']//td[text() = 'Student Name']/..//td[2]").shouldHave(text("Andrey Zhmaka"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Student Email']/..//td[2]").shouldHave(text("AndreyZhmaka@mail.com"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Gender']/..//td[2]").shouldHave(text("Male"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Mobile']/..//td[2]").shouldHave(text("0123456789"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Date of Birth']/..//td[2]").shouldHave(text("11 October,1999"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Subjects']/..//td[2]").shouldHave(text("English"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Hobbies']/..//td[2]").shouldHave(text("Sports, Reading, Music"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'Address']/..//td[2]").shouldHave(text("ul.Andrey 28/33"));
-        $x("//div[@class = 'table-responsive']//td[text() = 'State and City']/..//td[2]").shouldHave(text("Rajasthan Jaiselmer"));
+        $$x(("//td")).shouldHave(
+                itemWithText("Andrey Zhmaka"),
+                itemWithText("AndreyZhmaka@mail.com"),
+                itemWithText("Male"),
+                itemWithText("0123456789"),
+                itemWithText("11 October,1999"),
+                itemWithText("English"),
+                itemWithText("Sports, Reading, Music"),
+                itemWithText("ul.Andrey 28/33"),
+                itemWithText("Rajasthan Jaiselmer"));
     }
 }
 
