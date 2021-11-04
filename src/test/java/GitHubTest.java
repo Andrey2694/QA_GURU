@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -17,7 +16,7 @@ public class GitHubTest {
             moreElementsBtn.click();
         }
 
-        $("[data-filterable-type = substring]").shouldBe(visible).$$(".details-reset").findBy(text("SoftAssertions")).click();
+        $("[data-filterable-type = substring]").$$(".details-reset").findBy(text("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("JUnit5"));
     }
 }
