@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -11,11 +10,7 @@ public class GitHubTest {
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
 
-        WebElement moreElementsBtn = $(".js-wiki-more-pages-link");
-        if (moreElementsBtn.isEnabled()) {
-            moreElementsBtn.click();
-        }
-
+        $(".js-wiki-more-pages-link").click();
         $("[data-filterable-type = substring]").$$(".details-reset").findBy(text("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("JUnit5"));
     }
