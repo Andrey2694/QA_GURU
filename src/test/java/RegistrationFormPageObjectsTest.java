@@ -19,9 +19,8 @@ public class RegistrationFormPageObjectsTest extends BaseTest {
 
     @Test
     void fillFormTest() {
-        registrationsPage.openPage()
-                .typeFirstName(FIRST_NAME)
-                .typeLastName(LAST_NAME);
+        registrationsPage.openPage().typeFirstName(FIRST_NAME);
+        registrationsPage.typeLastName(LAST_NAME);
         registrationsPage.typeEmail(USER_EMAIL);
         registrationsPage.typeGender(GENDER);
         registrationsPage.typeNumber(USER_NUMBER);
