@@ -37,10 +37,8 @@ public class RegistrationsPage {
         return this;
     }
 
-    public RegistrationsPage typeFirstName(String value) {
+    public void typeFirstName(String value) {
         firstNameInput.setValue(value);
-
-        return this;
     }
 
     public void typeLastName(String value) {
