@@ -36,7 +36,6 @@ public class RegistrationsPage {
 
         return this;
     }
-
     public void typeFirstName(String value) {
         firstNameInput.setValue(value);
     }
