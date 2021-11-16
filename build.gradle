@@ -27,11 +27,14 @@ repositories {
 
 dependencies {
     testImplementation(
-            "org.junit.jupiter:junit-jupiter-api:5.8.1",
+            "org.junit.jupiter:junit-jupiter:5.8.1",
             "com.codeborne:selenide:5.25.0",
-            'org.junit.jupiter:junit-jupiter-params:5.7.2',
             'io.qameta.allure:allure-selenide:2.16.1',
-            'com.github.javafaker:javafaker:1.0.2'
+            'com.github.javafaker:javafaker:1.0.2',
+            'commons-io:commons-io:2.11.0',
+            'com.opencsv:opencsv:3.7',
+            'com.codeborne:pdf-test:1.7.0',
+            'com.codeborne:xls-test:1.2'
     )
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
 }
