@@ -1,0 +1,16 @@
+Send valid values through Text Box form
+
+Steps
+1. open website "https://demoqa.com/"
+2. Click on "Forms" icon
+3. Click on "Elements" icon
+4. Click on "Text Box" icon
+5. Fill out following fields
+    Full Name         - "Andrey Zhmaka"
+    Email             - "AndreyZhmaka@gmail.com"
+    Current Address   - "Moscovskaya 22"
+    Permanent Address - "Lermontowa 0"
+4. Click on "Submit" button
+
+Expected result:
+Our values are displayed in the list below the form

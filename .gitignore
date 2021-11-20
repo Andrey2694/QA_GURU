@@ -4,12 +4,6 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Properties files
 *.properties
 
@@ -36,7 +30,5 @@ logs/
 target/
 .classpath
 .project
-.settings/org.eclipse.buildship.core.prefs
-.vscode
 /gradlew
 /gradlew.bat
