@@ -37,8 +37,8 @@ public class RegistrationFormTest {
         $("#uploadPicture").uploadFromClasspath(PICTURE);
         $("#currentAddress").setValue(CURRENT_ADDRESS);
         $(".css-tlfecz-indicatorContainer").scrollTo().click();
-        $(".css-1g6gooi #react-select-3-input").setValue(STATE).pressEnter();
-        $(".css-1g6gooi #react-select-4-input").setValue(CITY).pressEnter();
+        $("#react-select-3-input").setValue(STATE).pressEnter();
+        $("#react-select-4-input").setValue(CITY).pressEnter();
         $("#subjectsInput").scrollTo().setValue(SUBJECT).pressEnter();
         $("#submit").scrollTo().click();
 
