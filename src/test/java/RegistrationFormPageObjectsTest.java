@@ -1,6 +1,8 @@
 import baseTest.BaseTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("registrationForm")
 public class RegistrationFormPageObjectsTest extends BaseTest {
     private final String FIRST_NAME = faker.name().firstName();
     private final String LAST_NAME = faker.name().lastName();
@@ -16,7 +18,6 @@ public class RegistrationFormPageObjectsTest extends BaseTest {
     private final String CURRENT_ADDRESS = faker.address().streetAddress();
     private final String STATE = "Rajasthan";
     private final String CITY = "Jaiselmer";
-
     @Test
     void fillFormTest() {
         registrationsPage.openPage().typeFirstName(FIRST_NAME);
