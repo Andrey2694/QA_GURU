@@ -102,11 +102,14 @@ public class RegistrationFormParameterizedTest {
             $(byText("Text Box")).click();
         });
         step("Fill fields and click Submit", () -> {
-            $("#userName").setValue(enumValue.name());
+            $("#userName").setValue(enumValue.getName());
+            $("#userEmail").setValue(enumValue.getAddress());
             $("#submit").scrollTo().click();
         });
         step("Check results", () -> {
-            $(".border").$("#name").shouldHave(Condition.text(enumValue.name()));
+            $(".border").$("#name").shouldHave(Condition.text(enumValue.getName()));
+            $(".border").$("#email").shouldHave(Condition.text(enumValue.getAddress()));
+
         });
     }
 
