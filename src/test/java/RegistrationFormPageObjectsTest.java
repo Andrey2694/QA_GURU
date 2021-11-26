@@ -1,4 +1,6 @@
 import baseTest.BaseTest;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +22,7 @@ public class RegistrationFormPageObjectsTest extends BaseTest {
     private final String CITY = "Jaiselmer";
     @Test
     void fillFormTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         registrationsPage.openPage().typeFirstName(FIRST_NAME);
         registrationsPage.typeLastName(LAST_NAME);
         registrationsPage.typeEmail(USER_EMAIL);
