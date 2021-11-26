@@ -3,10 +3,7 @@ package jenkins;
 import attachAllure.Attach;
 import baseTest.BaseTest;
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 @Tag("registrationForm")
@@ -23,9 +20,11 @@ public class RegistrationFormJenkins extends BaseTest {
         Configuration.browserCapabilities = capabilities;
     }
 
-    @BeforeEach
+    @AfterEach
     public void getAttach() {
         Attach.screenshotAs("Last screenshot");
+        Attach.browserConsoleLogs();
+        Attach.pageSource();
         Attach.addVideo();
     }
 
