@@ -1,33 +1,21 @@
 package jenkins;
 
+import attachAllure.Attach;
 import baseTest.BaseTest;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 @Tag("registrationForm")
 public class RegistrationFormJenkins extends BaseTest {
-    private final String FIRST_NAME = faker.name().firstName();
-    private final String LAST_NAME = faker.name().lastName();
-    private final String USER_EMAIL = "AndreyZhmaka@mail.com";
-    private final String GENDER = "Male";
-    private final String DATE_DAY = "30";
-    private final String DATE_MONTH = "July";
-    private final String DATE_YEAR = "2008";
-    private final String USER_NUMBER = faker.number().digits(10);
-    private final String SUBJECT = "English";
-    private final String HOBBIES = "Sports";
-    private final String PICTURE = "pic.png";
-    private final String CURRENT_ADDRESS = faker.address().streetAddress();
-    private final String STATE = "Rajasthan";
-    private final String CITY = "Jaiselmer";
-
     @BeforeAll
     static void setUp() {
+        //Подключаем Selenoid
         Configuration.browserSize = "1920x1080";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
 
@@ -35,10 +23,31 @@ public class RegistrationFormJenkins extends BaseTest {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-
     }
+
+    @BeforeEach
+    public void getAttach() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.addVideo();
+    }
+
     @Test
     void fillFormTest() {
+        final String FIRST_NAME = faker.name().firstName();
+        final String LAST_NAME = faker.name().lastName();
+        final String USER_EMAIL = "AndreyZhmaka@mail.com";
+        final String GENDER = "Male";
+        final String DATE_DAY = "30";
+        final String DATE_MONTH = "July";
+        final String DATE_YEAR = "2008";
+        final String USER_NUMBER = faker.number().digits(10);
+        final String SUBJECT = "English";
+        final String HOBBIES = "Sports";
+        final String PICTURE = "pic.png";
+        final String CURRENT_ADDRESS = faker.address().streetAddress();
+        final String STATE = "Rajasthan";
+        final String CITY = "Jaiselmer";
+
         registrationsPage.openPage().typeFirstName(FIRST_NAME);
         registrationsPage.typeLastName(LAST_NAME);
         registrationsPage.typeEmail(USER_EMAIL);
