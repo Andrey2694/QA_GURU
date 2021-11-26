@@ -2,9 +2,7 @@ package parameterized;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -70,6 +68,69 @@ public class RegistrationFormParameterizedTest {
             $(".border").$("#email").shouldHave(Condition.text(expectedResult.get(1)));
             $(".border").$("#currentAddress").shouldHave(Condition.text(expectedResult.get(2)));
             $(".border").$("#permanentAddress").shouldHave(Condition.text(expectedResult.get(3)));
+        });
+    }
+
+    @ValueSource(strings = {
+            "Andrey Zhmaka999999",
+            "Andrey Zhmaka66666"
+    })
+    @ParameterizedTest(name = "ParameterizedTest ValueSource {0}")
+    void fillFieldsValueSourceTest(String name) {
+        step("Open TextBox form", () -> {
+            open("https://demoqa.com/");
+            $(byText("Forms")).scrollTo().click();
+            $(byText("Elements")).click();
+            $(byText("Text Box")).click();
+        });
+        step("Fill fields and click Submit", () -> {
+            $("#userName").setValue(name);
+            $("#submit").scrollTo().click();
+        });
+        step("Check results", () -> {
+            $(".border").$("#name").shouldHave(Condition.text(name));
+        });
+    }
+
+    @EnumSource(ParameterizedNames.class)
+    @ParameterizedTest(name = "ParameterizedTest EnumSource")
+    void fillFieldsEnumSourceTest(ParameterizedNames enumValue) {
+        step("Open TextBox form", () -> {
+            open("https://demoqa.com/");
+            $(byText("Forms")).scrollTo().click();
+            $(byText("Elements")).click();
+            $(byText("Text Box")).click();
+        });
+        step("Fill fields and click Submit", () -> {
+            $("#userName").setValue(enumValue.name());
+            $("#submit").scrollTo().click();
+        });
+        step("Check results", () -> {
+            $(".border").$("#name").shouldHave(Condition.text(enumValue.name()));
+        });
+    }
+
+    @CsvFileSource(resources = "/CsvParameterizedFile.csv")
+    @ParameterizedTest(name = "ParameterizedTest CsvFileSource")
+    void fillFieldsCsvFileTest(String name, String email, String address, String perAddress) {
+        step("Open TextBox form", () -> {
+            open("https://demoqa.com/");
+            $(byText("Forms")).scrollTo().click();
+            $(byText("Elements")).click();
+            $(byText("Text Box")).click();
+        });
+        step("Fill fields and click Submit", () -> {
+            $("#userName").setValue(name);
+            $("#userEmail").setValue(email);
+            $("#currentAddress").setValue(address);
+            $("#permanentAddress").setValue(perAddress);
+            $("#submit").scrollTo().click();
+        });
+        step("Check results", () -> {
+            $(".border").$("#name").shouldHave(Condition.text(name));
+            $(".border").$("#email").shouldHave(Condition.text(email));
+            $(".border").$("#currentAddress").shouldHave(Condition.text(address));
+            $(".border").$("#permanentAddress").shouldHave(Condition.text(perAddress));
         });
     }
 }
