@@ -1,7 +1,6 @@
 package parameterized;
 
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -15,7 +14,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-@Disabled
 public class RegistrationFormParameterizedTest {
     static Stream<Arguments> fillFieldsMethodSourceTest() {
         return Stream.of(
