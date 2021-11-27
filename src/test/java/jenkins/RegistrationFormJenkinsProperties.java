@@ -20,7 +20,7 @@ public class RegistrationFormJenkinsProperties extends BaseTest {
     @BeforeEach
     void setUp() {
         //Подключаем Selenoid
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -36,7 +36,6 @@ public class RegistrationFormJenkinsProperties extends BaseTest {
         Attach.pageSource();
         Attach.addVideo();
     }
-
     @Test
     void fillFormTest() {
         final String FIRST_NAME = faker.name().firstName();
