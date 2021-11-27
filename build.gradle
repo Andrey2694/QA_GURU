@@ -30,6 +30,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "commons-io:commons-io:2.11.0",
             "com.opencsv:opencsv:3.7",
+            "org.aeonbits.owner:owner:1.0.12",
             "com.codeborne:pdf-test:1.7.0",
             "com.codeborne:xls-test:1.4.3")
     testRuntimeOnly(
@@ -52,14 +53,15 @@ tasks.withType(Test) {
         }
     }
 }
-task jenkins(type: Test) {
-    useJUnitPlatform {
-        includeTags 'jenkins'
-    }
-}
 
 task form(type: Test) {
     useJUnitPlatform {
         includeTags 'registrationForm'
     }
 }
+task formProperties(type: Test) {
+    useJUnitPlatform {
+        includeTags 'RegistrationFormProperties'
+    }
+}
+
