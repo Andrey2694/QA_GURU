@@ -13,15 +13,16 @@ import static java.lang.String.format;
 @Tag("RegistrationFormProperties")
 public class RegistrationFormJenkinsProperties extends BaseTest {
     public PropertiesConfig properties = ConfigFactory.create(PropertiesConfig.class);
-    private final String url = properties.url();
+    //private final String url = properties.url();
     private final String login = properties.login();
     private final String password = properties.password();
+    String selenoidUrl = System.getProperty("selenoidUrl", "selenoid.autotests.cloud/wd/hub/");
 
     @BeforeEach
     void setUp() {
         //Подключаем Selenoid
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = format("https://%s:%s@%s", login, password, url);
+        Configuration.remote = format("https://%s:%s@%s", login, password, selenoidUrl);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
