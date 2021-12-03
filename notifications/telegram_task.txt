@@ -1,0 +1,8 @@
+for local terminal
+java  \
+"-DprojectName=SOME_TEST" \
+"-Denv=DEV" \
+"-DreportLink=BUILD_URL" \
+"-Dcomm= my comment" \
+"-Dconfig.file=notifications/telegram_notification.json" \
+-jar allure-notifications-3.1.2.jar
