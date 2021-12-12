@@ -35,7 +35,7 @@ dependencies {
             "com.opencsv:opencsv:3.7",
             "com.codeborne:pdf-test:1.7.0",
             "com.github.javafaker:javafaker:1.0.2",
-            "com.codeborne:xls-test:1.4.3"
+            "com.codeborne:xls-test:1.4.3",
     )
 
     testRuntimeOnly(
@@ -65,4 +65,10 @@ task formProperties(type: Test) {
     useJUnitPlatform {
         includeTags 'RegistrationFormProperties'
     }
+}
+task web_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'web'
+    }
+    systemProperty 'platform', 'web'
 }
