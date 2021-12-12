@@ -1,4 +1,4 @@
-package jenkins;
+package selenoid;
 
 import attachAllure.Attach;
 import com.codeborne.selenide.Configuration;
