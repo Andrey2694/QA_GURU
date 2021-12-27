@@ -37,6 +37,7 @@ dependencies {
             "com.github.javafaker:javafaker:1.0.2",
             'org.assertj:assertj-core:3.21.0',
             "com.codeborne:xls-test:1.4.3",
+            "io.rest-assured:rest-assured:4.4.0"
     )
 
     testRuntimeOnly(
