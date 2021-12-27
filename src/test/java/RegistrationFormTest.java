@@ -20,6 +20,7 @@ public class RegistrationFormTest {
 
     @Test
     void formTest() {
+        //Открытие сайта
         open("https://demoqa.com/automation-practice-form");
 
         $("#firstName").setValue(FIRST_NAME);
