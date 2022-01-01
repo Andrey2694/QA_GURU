@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
 
 public class RegresTests {
@@ -45,6 +46,7 @@ public class RegresTests {
                 .put("/api/users/2")
                 .then()
                 .statusCode(200)
+                .body("updatedAt", notNullValue())
                 .body("name", is("morpheus"));
     }
 
@@ -57,6 +59,7 @@ public class RegresTests {
                 .patch("/api/users/2")
                 .then()
                 .statusCode(200)
+                .body("updatedAt", notNullValue())
                 .body("job", is("zion resident"));
     }
 
