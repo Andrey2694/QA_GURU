@@ -23,7 +23,6 @@ public class DemoWebShop {
     Integer getItemsCountFromCart(String value) {
         if (value != null) {
             return Integer.parseInt(value.substring(1, value.length() - 1));
-
         }
         return 0;
     }
@@ -75,7 +74,7 @@ public class DemoWebShop {
     }
 
     @Test
-    void subscribe() {
+    void getSubscribe() {
         Response response =
                 given()
                         .contentType("application/x-www-form-urlencoded; charset=UTF-8")
@@ -91,4 +90,3 @@ public class DemoWebShop {
         System.out.println("Response = " + response.asString());
     }
 }
-
