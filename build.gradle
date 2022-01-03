@@ -74,3 +74,8 @@ tasks.withType(Test) {
 //    }
 //    systemProperty 'platform', 'web'
 //}
+ task demoWebShop(type: Test) {
+    useJUnitPlatform {
+        includeTags 'DemoWebShopApi'
+    }
+}

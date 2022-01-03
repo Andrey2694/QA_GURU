@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -16,6 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static restApi.filters.CustomLogFilter.customLogFilter;
 
+@Tag("DemoWebShopApi")
 public class DemoWebShopWithAllure {
     String cartValue = null;
 
