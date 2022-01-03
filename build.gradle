@@ -7,9 +7,9 @@ repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.16.0",
+def allureVersion = "2.16.1",
     selenideVersion = "5.24.0",
-    junitVersion = "5.8.1"
+    junitVersion = "5.8.2"
 
 allure {
     version = allureVersion
@@ -26,7 +26,7 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.rest-assured:rest-assured:4.3.1",
+            "io.rest-assured:rest-assured:4.4.0",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.aeonbits.owner:owner:1.0.12",
             "org.assertj:assertj-core:3.19.0",
@@ -63,14 +63,14 @@ tasks.withType(Test) {
         }
     }
 }
-task formProperties(type: Test) {
-    useJUnitPlatform {
-        includeTags 'RegistrationFormProperties'
-    }
-}
-task web_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'web'
-    }
-    systemProperty 'platform', 'web'
-}
+//task formProperties(type: Test) {
+//    useJUnitPlatform {
+//        includeTags 'RegistrationFormProperties'
+//    }
+//}
+//task web_tests(type: Test) {
+//    useJUnitPlatform {
+//        includeTags 'web'
+//    }
+//    systemProperty 'platform', 'web'
+//}
