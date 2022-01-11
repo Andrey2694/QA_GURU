@@ -1,11 +1,13 @@
 package restApi;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.junit5.AllureJunit5;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -18,6 +20,7 @@ import static org.hamcrest.Matchers.is;
 import static restApi.filters.CustomLogFilter.customLogFilter;
 
 @Tag("DemoWebShopApi")
+@ExtendWith({AllureJunit5.class})
 public class DemoWebShopWithAllure {
     String cartValue = null;
 
